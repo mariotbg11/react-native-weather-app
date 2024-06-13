@@ -2,17 +2,68 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 const WeatherInfo = ({ weatherData }) => {
+  const renderWeatherIcon = () => {
+    switch (weatherData.weather[0].main) {
+      case "Clear":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/01d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      case "Clouds":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/02d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      case "Snow":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/13d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      case "Rain":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/10d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      case "Drizzle":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/09d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      case "Thunderstorm":
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/wn/11d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+      default:
+        return (
+          <Image
+            source={{ uri: "https://openweathermap.org/img/w/50d.png" }}
+            style={styles.weatherIcon}
+          />
+        );
+    }
+  };
+
   return (
     <View style={styles.marginTop20}>
       <Text style={styles.text}>The weather of {weatherData.name}</Text>
       <Text style={[styles.temperature, styles.marginTop20]}>
-        {weatherData.main.temp} C
+        {weatherData.main.temp}°C
       </Text>
       <View style={[styles.rowContainer, styles.marginTop20]}>
-        <Image
-          source={{ uri: "https://openweathermap.org/img/w/04d.png" }}
-          style={styles.weatherIcon}
-        />
+        {renderWeatherIcon()}
         <Text style={[styles.text, styles.bold]}>
           {weatherData.weather[0].main}
         </Text>

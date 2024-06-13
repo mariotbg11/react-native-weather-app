@@ -35,7 +35,7 @@ const App = () => {
         data.visibility /= 1000;
         data.visibility = data.visibility.toFixed(2);
         data.main.temp -= 273.15;
-        data.main.temp = data.main.temp.toFixed(2);
+        data.main.temp = Math.round(data.main.temp);
         setWeatherData(data);
         setStatus("success");
       })
