@@ -49,7 +49,7 @@ const WeatherInfo = ({ weatherData }) => {
       default:
         return (
           <Image
-            source={{ uri: "https://openweathermap.org/img/w/50d.png" }}
+            source={{ uri: "https://openweathermap.org/img/wn/50d.png" }}
             style={styles.weatherIcon}
           />
         );
