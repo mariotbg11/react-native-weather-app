@@ -14,6 +14,7 @@ const CustomTextInput = ({
       numberOfLines={numberOfLines}
       style={styles.input}
       placeholder={placeholder}
+      placeholderTextColor={"#B9D2D2"}
       onChangeText={onChange}
       defaultValue={text}
     />
@@ -22,9 +23,11 @@ const CustomTextInput = ({
 
 const styles = StyleSheet.create({
   input: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "#DDDDDD",
     padding: 10,
+    color: "#fff",
+    borderRadius: 3,
   },
   container: {
     marginTop: 20,
