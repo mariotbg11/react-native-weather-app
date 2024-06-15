@@ -6,7 +6,7 @@ const WeatherSearch = ({ searchWeather }) => {
   const [location, setLocation] = useState("");
 
   return (
-    <View>
+    <View style={styles.container}>
       <CustomTextInput
         placeholder="Search the weather of your city"
         numberOfLines={1}
@@ -21,6 +21,9 @@ const WeatherSearch = ({ searchWeather }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
   buttonWrapper: {
     marginTop: 20,
   },

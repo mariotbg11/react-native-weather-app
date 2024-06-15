@@ -57,7 +57,7 @@ const WeatherInfo = ({ weatherData }) => {
   };
 
   return (
-    <View style={styles.marginTop20}>
+    <View style={(styles.marginTop20, styles.weatherCard)}>
       <Text style={styles.text}>The weather of {weatherData.name}</Text>
       <Text style={[styles.temperature, styles.marginTop20]}>
         {weatherData.main.temp}°C
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     fontSize: 16,
+    color: "#fff",
   },
   bold: {
     fontWeight: "700",
@@ -108,10 +109,20 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 80,
     textAlign: "center",
+    color: "#fff",
   },
   weatherIcon: {
     width: 50,
     height: 50,
+  },
+  weatherCard: {
+    padding: 20,
+    margin: 20,
+    marginVertical: 15,
+    borderColor: "1px solid rgba(255, 255, 255, 0.3)",
+    borderWidth: 1,
+    borderRadius: 3,
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
   },
 });
 

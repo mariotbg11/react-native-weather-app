@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL, API_KEY } from "./src/constant";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  ImageBackground,
+} from "react-native";
 import WeatherSearch from "./src/components/weatherSearch";
 import WeatherInfo from "./src/components/weatherInfo";
 
@@ -17,7 +23,7 @@ const App = () => {
         return <WeatherInfo weatherData={weatherData} />;
       case "error":
         return (
-          <Text>
+          <Text style={styles.errorStatus}>
             Something went wrong. Please try again with a correct city name.
           </Text>
         );
@@ -46,18 +52,34 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <WeatherSearch searchWeather={searchWeather} />
-      <View style={styles.margintTop20}>{renderComponent()}</View>
+      <ImageBackground
+        source={require("./assets/image/gradient-bg.jpg")}
+        style={styles.gradientBg}
+      >
+        <WeatherSearch searchWeather={searchWeather} />
+        <View style={styles.margintTop20}>{renderComponent()}</View>
+      </ImageBackground>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#000",
   },
   margintTop20: {
     marginTop: 20,
+  },
+  gradientBg: {
+    flex: 1,
+  },
+  errorStatus: {
+    paddingHorizontal: 20,
+    color: "#fff",
   },
 });
 
